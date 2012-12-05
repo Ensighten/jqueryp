@@ -28,10 +28,11 @@
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies": {
-  }
+  "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.3.17"
+    "grunt": "~0.3.17",
+    "grunt-templater": "0.0.3-1",
+    "mustache": "~0.7.0"
   },
   "keywords": [
     "jquery",

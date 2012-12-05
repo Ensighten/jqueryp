@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+  // TODO: Create/pull request read+variables functionality into grunt-templater
+  var read = grunt.file.read;
 
   // Project configuration.
   grunt.initConfig({
@@ -11,8 +13,22 @@ module.exports = function(grunt) {
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
     },
     template: {
-      'stage/jqueryp.js': 'jqueryp.js',
-      'stage/require_chainer.js': 'require_chainer.js'
+      vanilla: {
+        src: 'lib/templates/vanilla.mustache',
+        dest: 'stage/jqueryp.js',
+        variables: {
+          jqueryp: read('lib/jqueryp.js'),
+          require_chainer: read('lib/require_chainer.js')
+        }
+      },
+      require: {
+        src: 'lib/templates/require.mustache',
+        dest: 'stage/jqueryp.require.js',
+        variables: {
+          jqueryp: read('lib/jqueryp.js'),
+          require_chainer: read('lib/require_chainer.js')
+        }
+      }
     },
     concat: {
       dist: {
@@ -30,7 +46,7 @@ module.exports = function(grunt) {
       files: ['test/**/*.js']
     },
     lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
+      files: ['grunt.js', 'lib/**/*.js', 'lib/**/*.mustache', 'test/**/*.js']
     },
     watch: {
       files: '<config:lint.files>',
@@ -54,18 +70,11 @@ module.exports = function(grunt) {
         module: false
       }
     },
-    uglify: {},
-    mustache: {
-      'filesAsVariables': {
-        'jquery': 'lib/jqueryp.js',
-        'require_chainer': 'lib/require_chainer.js'
-      }
-    }
+    uglify: {}
   });
 
-  // grumble grumble, why is nothing ever what I want/need =(
-  // TODO: Open source/contribute this
-  grunt.registerMultiTask('template', function (
+  // Load in grunt-templater
+  grunt.loadNpmTasks('grunt-templater');
 
   // Default task.
   grunt.registerTask('default', 'lint test concat min');
