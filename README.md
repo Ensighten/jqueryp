@@ -49,7 +49,7 @@ require(['jqueryp!autocomplete!expand!ui'], function ($) {
 
 ## Examples
 
-Setting up a new jQuery plugin
+### Setting up a new jQuery plugin
 ```js
 // Create a Toggle class
 function Toggle(elt) {
@@ -79,7 +79,7 @@ Toggle.prototype = {
 $.exportModule('toggle', Toggle);
 ```
 
-Play around with `click` binding by constructor
+### Play around with `click` binding by constructor
 ```js
 // Enable toggling of table rows
 var $rows = $('tr');
@@ -94,21 +94,21 @@ $firstRow.hasClass('is-selected'); // true
 $rows.last().hasClass('is-selected'); // false
 ```
 
-Manually call prototyped methods
+### Manually call prototyped methods
 ```js
 // Calling 'toggle' method of Toggle class
 var $pseudoCheckboxes = $('.pseudo-checkbox');
 $pseudoCheckboxes.toggle('toggle');
 
 // The checkboxes are now checked
-$pseudoCheckboxes.hasClass('is-selected');
+$pseudoCheckboxes.hasClass('is-selected'); // true
 
 // Clicking them will uncheck them (as set up by constructor)
 $pseudoCheckboxes.click();
 $pseudoCheckboxes.hasClass('is-selected'); // false
 ```
 
-require.js flavor allows for slick chaining of plugin dependencies
+### require.js flavor allows for slick chaining of plugin dependencies
 ```js
 require(['jqueryp!autocomplete!expand!ui'], function ($) {
   $('input[type="text"]').autocomplete();
