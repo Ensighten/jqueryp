@@ -1,3 +1,7 @@
+/*! jqueryp - v0.1.0 - 2012-12-05
+* https://github.com/Ensighten/jqueryp
+* Copyright (c) 2012 Ensighten; Licensed MIT */
+
 define(['jquery'], function ($) {
   /**
  * Function to easily add new jQuery plugins via a constructor function

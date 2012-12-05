@@ -42,6 +42,7 @@ $.exportModule = function (moduleName, module) {
 
           // If there is no method fn, error out
           if (methodFn === undefined) {
+            var console = window.console;
             if (console && console.error) {
               console.error(moduleName + '.' + method + ' not found!');
             }
