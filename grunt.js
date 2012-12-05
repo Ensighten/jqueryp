@@ -10,6 +10,10 @@ module.exports = function(grunt) {
         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
     },
+    template: {
+      'stage/jqueryp.js': 'jqueryp.js',
+      'stage/require_chainer.js': 'require_chainer.js'
+    },
     concat: {
       dist: {
         src: ['<banner:meta.banner>', '<file_strip_banner:lib/<%= pkg.name %>.js>'],
@@ -50,8 +54,18 @@ module.exports = function(grunt) {
         module: false
       }
     },
-    uglify: {}
+    uglify: {},
+    mustache: {
+      'filesAsVariables': {
+        'jquery': 'lib/jqueryp.js',
+        'require_chainer': 'lib/require_chainer.js'
+      }
+    }
   });
+
+  // grumble grumble, why is nothing ever what I want/need =(
+  // TODO: Open source/contribute this
+  grunt.registerMultiTask('template', function (
 
   // Default task.
   grunt.registerTask('default', 'lint test concat min');

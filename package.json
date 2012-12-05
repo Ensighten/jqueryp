@@ -28,8 +28,16 @@
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+  }
   "devDependencies": {
     "grunt": "~0.3.17"
   },
-  "keywords": []
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jqueryp",
+    "module",
+    "require"
+  ]
 }
