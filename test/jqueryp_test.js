@@ -2,6 +2,20 @@
 // var jqueryp = require('../lib/jqueryp.js');
 // TODO: Move to qunit tests
 
+// Skeleton from github
+// - jqueryp exists.
+// - A toggle class
+//     - added via jqueryp
+//         - exists on jQuery collections.
+
+// - A jQuery collection
+//     - when an empty toggler is called (jqueryp method)
+//         - the Toggler constructor is run (asserts class or some other attribute)
+
+// - A jQuery collection
+//     - when toggled via a jqueryp method
+//         - runs the Toggler.toggle method (asserts class or some other attribute)
+
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
