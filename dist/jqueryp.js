@@ -3,7 +3,7 @@
 * Copyright (c) 2012 Ensighten; Licensed MIT */
 
 (function ($, undefined) {
-  /**
+/**
  * Function to easily add new jQuery plugins via a constructor function
  * @param {String} moduleName Name of the module
  * @param {Function} module Constructor function to bind under $()[moduleName]

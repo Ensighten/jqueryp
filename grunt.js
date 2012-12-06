@@ -29,7 +29,16 @@ module.exports = function(grunt) {
           jqueryp: read('lib/jqueryp.js'),
           require_chainer: read('lib/require_chainer.js')
         }
+      },
+      chainer: {
+        src: 'lib/templates/chainer.mustache',
+        dest: 'stage/jqueryp.chainer.js',
+        variables: {
+          jqueryp: read('lib/jqueryp.js'),
+          require_chainer: read('lib/require_chainer.js')
+        }
       }
+
     },
     concat: {
       distVanilla: {
@@ -39,6 +48,10 @@ module.exports = function(grunt) {
       distRequire: {
         src: ['<banner:meta.banner>', '<file_strip_banner:stage/<%= pkg.name %>.require.js>'],
         dest: 'dist/<%= pkg.name %>.require.js'
+      },
+      distChainer: {
+        src: ['<banner:meta.banner>', '<file_strip_banner:stage/<%= pkg.name %>.chainer.js>'],
+        dest: 'dist/<%= pkg.name %>.chainer.js'
       }
     },
     min: {
@@ -49,6 +62,10 @@ module.exports = function(grunt) {
       distRequire: {
         src: ['<banner:meta.banner>', '<config:concat.distRequire.dest>'],
         dest: 'dist/<%= pkg.name %>.require.min.js'
+      },
+      distChainer: {
+        src: ['<banner:meta.banner>', '<config:concat.distChainer.dest>'],
+        dest: 'dist/<%= pkg.name %>.chainer.min.js'
       }
     },
     test: {

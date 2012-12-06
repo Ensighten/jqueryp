@@ -1,5 +1,5 @@
 define(['jquery'], function ($) {
-  /**
+/**
  * Function to easily add new jQuery plugins via a constructor function
  * @param {String} moduleName Name of the module
  * @param {Function} module Constructor function to bind under $()[moduleName]
@@ -66,7 +66,7 @@ $.exportModule = function (moduleName, module) {
   };
 };
 
-  return {
+return {
   /**
    * Plugin load function (paraphrased from http://requirejs.org/docs/plugins.html#apiload)
    * @param {String} name Resources following ! (e.g 'world!three' in 'hello!world!three')

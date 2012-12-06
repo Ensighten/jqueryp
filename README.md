@@ -7,10 +7,14 @@ Quickly create new jQuery plugins and chain together jQuery plugin requires.
 ### In the browser
 Download the [production version][min] ([vanilla][min] or [requirejs][min_require]) or the [development version][max] ([vanilla][max] or [requirejs][max_require]).
 
+Additionally, the [chaining mechanism](#requirejs-extras) is available sans `$.exportModule` ([production][min_chainer] and [development][max_chainer]).
+
 [min_require]: https://raw.github.com/Ensighten/jqueryp/master/dist/jqueryp.require.min.js
 [max_require]: https://raw.github.com/Ensighten/jqueryp/master/dist/jqueryp.require.js
 [min]: https://raw.github.com/Ensighten/jqueryp/master/dist/jqueryp.min.js
 [max]: https://raw.github.com/Ensighten/jqueryp/master/dist/jqueryp.js
+[min_chainer]: https://raw.github.com/Ensighten/jqueryp/master/dist/jqueryp.chainer.min.js
+[max_chainer]: https://raw.github.com/Ensighten/jqueryp/master/dist/jqueryp.chainer.js
 
 In your web page:
 
