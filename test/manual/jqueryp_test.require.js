@@ -31,14 +31,42 @@ test('returns jquery when empty (jqueryp!)', 1, function() {
   });
 });
 
-test('returns jquery with one module (jqueryp!)', 1, function() {
+test('returns jquery with one module (jqueryp!world)', 3, function() {
+  function world() {}
   define('world', ['jquery'], function ($) {
-
+    $.fn.world = world;
   });
-  ok(!window._$.fn.world);
+  notStrictEqual(window._$.fn.world, world);
   stop();
-  require(['jqueryp!'], function ($) {
-    strictEqual($, window._$);
+  require(['jqueryp!world'], function ($) {
+    strictEqual(window._$, $);
+    strictEqual(window._$.fn.world, world);
+    start();
+  });
+});
+
+test('returns jquery with multiple module (jqueryp!earth!moon!stars)', 7, function() {
+  function earth() {}
+  function moon() {}
+  function stars() {}
+  define('earth', ['jquery'], function ($) {
+    $.fn.earth = earth;
+  });
+  define('moon', ['jquery'], function ($) {
+    $.fn.moon = moon;
+  });
+  define('stars', ['jquery'], function ($) {
+    $.fn.stars = stars;
+  });
+  notStrictEqual(window._$.fn.earth, earth);
+  notStrictEqual(window._$.fn.moon, moon);
+  notStrictEqual(window._$.fn.stars, stars);
+  stop();
+  require(['jqueryp!earth!moon!stars'], function ($) {
+    strictEqual(window._$, $);
+    strictEqual(window._$.fn.earth, earth);
+    strictEqual(window._$.fn.moon, moon);
+    strictEqual(window._$.fn.stars, stars);
     start();
   });
 });
