@@ -15,27 +15,27 @@ module.exports = function(grunt) {
     },
     template: {
       vanilla: {
-        src: 'lib/templates/vanilla.mustache',
+        src: 'src/templates/vanilla.mustache',
         dest: 'stage/jqueryp.js',
         variables: {
-          jqueryp: read('lib/jqueryp.js'),
-          require_chainer: read('lib/require_chainer.js')
+          jqueryp: read('src/jqueryp.js'),
+          require_chainer: read('src/require_chainer.js')
         }
       },
       require: {
-        src: 'lib/templates/require.mustache',
+        src: 'src/templates/require.mustache',
         dest: 'stage/jqueryp.require.js',
         variables: {
-          jqueryp: read('lib/jqueryp.js'),
-          require_chainer: read('lib/require_chainer.js')
+          jqueryp: read('src/jqueryp.js'),
+          require_chainer: read('src/require_chainer.js')
         }
       },
       chainer: {
-        src: 'lib/templates/chainer.mustache',
+        src: 'src/templates/chainer.mustache',
         dest: 'stage/jqueryp.chainer.js',
         variables: {
-          jqueryp: read('lib/jqueryp.js'),
-          require_chainer: read('lib/require_chainer.js')
+          jqueryp: read('src/jqueryp.js'),
+          require_chainer: read('src/require_chainer.js')
         }
       }
 
@@ -68,11 +68,11 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.chainer.min.js'
       }
     },
-    test: {
-      files: ['test/**/*.js']
+    qunit: {
+      files: ['test/**/*.html']
     },
     lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
+      files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']
     },
     watch: {
       files: '<config:lint.files>',
@@ -102,6 +102,9 @@ module.exports = function(grunt) {
 
   // Load in grunt-templater
   grunt.loadNpmTasks('grunt-templater');
+
+  // Alias test as qunit
+  grunt.registerTask('test', 'qunit');
 
   // Default task.
   grunt.registerTask('default', 'lint template test concat min');
