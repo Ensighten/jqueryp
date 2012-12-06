@@ -71,7 +71,7 @@ Toggle.prototype = {
     $item.toggleClass('is-selected');
 
     // Fire an event
-    $item.fire('toggle:toggle');
+    $item.trigger('toggle.toggle');
   }
 };
 
