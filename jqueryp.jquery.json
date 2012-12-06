@@ -1,5 +1,6 @@
 {
   "name": "jqueryp",
+  "title": "jqueryp",
   "description": "Quickly create new jQuery plugins and chain together jQuery plugin requires.",
   "version": "0.1.0",
   "homepage": "https://github.com/Ensighten/jqueryp",
@@ -21,24 +22,8 @@
       "url": "https://github.com/Ensighten/jqueryp/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/jqueryp",
-  "engines": {
-    "node": "*"
+  "dependencies": {
+    "jquery": "*"
   },
-  "scripts": {
-    "test": "grunt qunit"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.3.17",
-    "grunt-templater": "0.0.3-1",
-    "mustache": "~0.7.0"
-  },
-  "keywords": [
-    "jquery",
-    "plugin",
-    "jqueryp",
-    "module",
-    "require"
-  ]
+  "keywords": []
 }
