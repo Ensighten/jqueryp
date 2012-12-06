@@ -65,4 +65,4 @@ $.exportModule = function (moduleName, module) {
     return retVal;
   };
 };
-}(window.jQuery));
+}(jQuery));

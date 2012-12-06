@@ -36,19 +36,45 @@
       raises(block, [expected], [message])
   */
 
-  module('jQuery#awesome', {
+  module('jQuery#exportModule', {
     setup: function() {
       this.elems = $('#qunit-fixture').children();
     }
   });
 
-  test('is chainable', 1, function() {
-    // Not a bad test to run on collection methods.
-    strictEqual(this.elems.awesome(), this.elems, 'should be chaninable');
+  test('exists', 1, function() {
+    ok($.exportModule, '$.exportModule does not exist');
   });
 
-  test('is awesome', 1, function() {
-    strictEqual(this.elems.awesome().text(), 'awesomeawesomeawesome', 'should be thoroughly awesome');
+  module('A toggle class added via jQuery#exportModule', {
+    setup: function() {
+      this.elems = $('#qunit-fixture').children();
+
+      // Create the toggle class
+      function Toggle(elt) {
+        var $elt = $(elt),
+            that = this;
+
+        this.$elt = $elt;
+
+        // Save the toggle class to the element
+        $elt.addClass('toggle');
+      }
+      Toggle.prototype = {
+        'toggle': function () {
+          // Toggle the class
+          var $item = this.$item;
+          $item.toggleClass('is-selected');
+        }
+      };
+
+      // Expose it via jqueryp
+      $.exportModule('toggle', Toggle);
+    }
+  });
+
+  test('exists on jQuery collections', 1, function() {
+    ok(this.elems.toggle, 'toggle should exist on jQuery collections');
   });
 
   module('jQuery.awesome');
