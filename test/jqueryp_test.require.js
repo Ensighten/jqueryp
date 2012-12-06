@@ -23,16 +23,10 @@
 
 module('requirejs#jqueryp');
 
-  console.log('zzzz');
 test('returns jqueryp when empty (jqueryp!)', 1, function() {
   stop();
-  console.log('aaaa');
-  require(['jquery'], function ($) {
-    console.log('bbbb');
-    // strictEqual(jQuery, $);
+  require(['jqueryp!'], function ($) {
+    strictEqual($, window._$);
     start();
-    console.log('hhhhh');
   });
-  console.log('kkkkkkk');
 });
-console.log(',,,,,,,,,,,,,,');

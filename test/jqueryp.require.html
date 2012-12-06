@@ -14,8 +14,20 @@
   <script>window._$ = jQuery.noConflict(true);</script>
   <!-- Load local requirejs -->
   <script src="../libs/requirejs/require.js"></script>
-  <!-- Define jquery via requirejs -->
-  <script>define('jquery', window._$);</script>
+  <script>
+    // Define jQuery via requirejs
+    define('jquery', function () {
+      return window._$;
+    });
+
+    // Configure requirejs to load from dist
+    require.config({
+      'baseUrl': '/dist',
+      'paths': {
+        'jqueryp': 'jqueryp.require'
+      }
+    });
+  </script>
   <!-- Load test. -->
   <script src="jqueryp_test.require.js"></script>
 </head>
