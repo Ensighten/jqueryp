@@ -63,8 +63,8 @@
       Toggle.prototype = {
         'toggle': function () {
           // Toggle the class
-          var $item = this.$item;
-          $item.toggleClass('is-selected');
+          var $elt = this.$elt;
+          $elt.toggleClass('is-selected');
         }
       };
 
@@ -77,21 +77,33 @@
     ok(this.elems.toggle, 'toggle should exist on jQuery collections');
   });
 
-  module('jQuery.awesome');
-
-  test('is awesome', 1, function() {
-    strictEqual($.awesome(), 'awesome', 'should be thoroughly awesome');
+  test('is chainable', 1, function () {
+    strictEqual(this.elems.toggle(), this.elems);
   });
 
-  module(':awesome selector', {
+  module('A jQuery collection (empty test)', {
     setup: function() {
-      this.elems = $('#qunit-fixture').children();
+      this.elems = $('#qunit-fixture-empty-test').children();
     }
   });
 
-  test('is awesome', 1, function() {
-    // Use deepEqual & .get() when comparing jQuery objects.
-    deepEqual(this.elems.filter(':awesome').get(), this.elems.last().get(), 'knows awesome when it sees it');
+  test('when an empty toggler is called (jqueryp method), the Toggler constructor is run (asserts class or some other attribute)', 1, function() {
+    var $elems = this.elems;
+    $elems.toggle();
+    ok($elems.hasClass('toggle'), 'should have class from constructor');
+  });
+
+  module('A jQuery collection (method test)', {
+    setup: function() {
+      this.elems = $('#qunit-fixture-method-test').children();
+    }
+  });
+
+  test('when toggled via a jqueryp method runs the Toggler.toggle method (asserts class or some other attribute)', 2, function() {
+    var $elems = this.elems;
+    $elems.toggle('toggle');
+    ok($elems.hasClass('toggle'), 'should have class from constructor');
+    ok($elems.hasClass('is-selected'), 'should have class from method');
   });
 
 }(jQuery));
