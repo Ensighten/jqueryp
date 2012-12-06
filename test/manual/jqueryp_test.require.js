@@ -23,7 +23,19 @@
 
 module('requirejs#jqueryp');
 
-test('returns jqueryp when empty (jqueryp!)', 1, function() {
+test('returns jquery when empty (jqueryp!)', 1, function() {
+  stop();
+  require(['jqueryp!'], function ($) {
+    strictEqual($, window._$);
+    start();
+  });
+});
+
+test('returns jquery with one module (jqueryp!)', 1, function() {
+  define('world', ['jquery'], function ($) {
+
+  });
+  ok(!window._$.fn.world);
   stop();
   require(['jqueryp!'], function ($) {
     strictEqual($, window._$);
