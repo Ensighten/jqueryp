@@ -94,7 +94,8 @@ module.exports = function(grunt) {
         browser: true
       },
       globals: {
-        '$': true
+        '$': true,
+        'jQuery': true
       }
     },
     uglify: {}
