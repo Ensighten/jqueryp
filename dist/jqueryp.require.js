@@ -1,4 +1,4 @@
-/*! jqueryp - v0.1.0 - 2012-12-05
+/*! jqueryp - v1.0.0 - 2012-12-06
 * https://github.com/Ensighten/jqueryp
 * Copyright (c) 2012 Ensighten; Licensed MIT */
 
