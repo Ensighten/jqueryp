@@ -68,18 +68,17 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.chainer.min.js'
       }
     },
-    qunit: {
-      // Ignore manual tests
-      // files: ['test/*.html']
-      files: [
-        'http://localhost:8000/test/jqueryp.html',
-        'http://localhost:8000/test/jqueryp.require.html'
-      ]
-    },
     // Host files for testing
     server: {
       port: 8000,
       base: '.'
+    },
+    // Test the host directory via URLs (patches require.js issues)
+    qunit: {
+      files: [
+        'http://localhost:8000/test/jqueryp.html',
+        'http://localhost:8000/test/jqueryp.require.html'
+      ]
     },
     lint: {
       files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']
