@@ -68,17 +68,8 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.chainer.min.js'
       }
     },
-    // Host files for testing
-    server: {
-      port: 8000,
-      base: '.'
-    },
-    // Test the host directory via URLs (patches require.js issues)
     qunit: {
-      files: [
-        'http://localhost:8000/test/jqueryp.html',
-        'http://localhost:8000/test/jqueryp.require.html'
-      ]
+      files: ['test/**/*.html']
     },
     lint: {
       files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']
@@ -116,7 +107,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-templater');
 
   // Alias test as qunit
-  grunt.registerTask('test', 'server qunit');
+  grunt.registerTask('test', 'qunit');
 
   // Default task.
   grunt.registerTask('default', 'lint template concat min test');
