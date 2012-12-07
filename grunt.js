@@ -70,7 +70,16 @@ module.exports = function(grunt) {
     },
     qunit: {
       // Ignore manual tests
-      files: ['test/*.html']
+      // files: ['test/*.html']
+      files: [
+        'http://localhost:8000/test/jqueryp.html',
+        'http://localhost:8000/test/jqueryp.require.html'
+      ]
+    },
+    // Host files for testing
+    server: {
+      port: 8000,
+      base: '.'
     },
     lint: {
       files: ['grunt.js', 'src/**/*.js', 'test/**/*.js']
@@ -108,7 +117,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-templater');
 
   // Alias test as qunit
-  grunt.registerTask('test', 'qunit');
+  grunt.registerTask('test', 'server qunit');
 
   // Default task.
   grunt.registerTask('default', 'lint template concat min test');
