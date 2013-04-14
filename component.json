@@ -2,7 +2,7 @@
   "name": "jqueryp",
   "repo": "Ensighten/jqueryp",
   "description": "Quickly create new jQuery plugins and chain together jQuery plugin requires.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "keywords": [
     "jquery",
     "plugin",

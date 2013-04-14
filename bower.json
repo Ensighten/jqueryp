@@ -1,6 +1,6 @@
 {
   "name": "jqueryp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/jqueryp.require.js",
   "ignore": [
     "**/.*",
