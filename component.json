@@ -1,0 +1,19 @@
+{
+  "name": "jqueryp",
+  "repo": "Ensighten/jqueryp",
+  "description": "Quickly create new jQuery plugins and chain together jQuery plugin requires.",
+  "version": "1.0.3",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jqueryp",
+    "module",
+    "require"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "dist/jqueryp.js"
+  ]
+}

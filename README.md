@@ -5,7 +5,15 @@ Quickly create new jQuery plugins and chain together jQuery plugin requires.
 ## Getting Started
 
 ### In the browser
-Download the [production version][min] ([vanilla][min] or [requirejs][min_require]) or the [development version][max] ([vanilla][max] or [requirejs][max_require]).
+Download the [production version][min] ([vanilla][min] or [requirejs][min_require]) or the [development version][max] ([vanilla][max] or [requirejs][max_require]) or install via:
+
+```shell
+# Install via bower
+bower install jqueryp
+
+# Install via component
+component install Ensighten/jqueryp
+```
 
 Additionally, the [chaining mechanism](#requirejs-extras) is available sans `$.exportModule` ([production][min_chainer] and [development][max_chainer]).
 
